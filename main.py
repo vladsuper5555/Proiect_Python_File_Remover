@@ -15,7 +15,6 @@ def get_files_with_absolute_paths(directory, count = 5):
             except (FileNotFoundError, PermissionError):
                 continue
     
-    # Sort files by access time (oldest first)
     files.sort(key=lambda x: x[2])
     return files[:count]
 
@@ -27,7 +26,7 @@ def bytes_to_human_readable(size):
         if size < 1024:
             return f"{size:.2f} {unit}"
         size /= 1024
-    return f"{size:.2f} PB"  # In case the size is larger than TB
+    return f"{size:.2f} PB"  # case size is larger than TB
 
 def display_files(files):
     """
@@ -79,7 +78,7 @@ def main():
         return
     
     directory = sys.argv[1]
-    count = 5  # Default value
+    count = 5  # default value
     
     if len(sys.argv) == 4 and sys.argv[2] == '-c':
         try:
